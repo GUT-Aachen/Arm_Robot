@@ -1,6 +1,32 @@
 arm_group_controller:
-  type: "position_controllers/JointTrajectoryController"
-  joints: [joint1, joint2, joint3, joint4]
+  type: "effort_controllers/JointTrajectoryController"
+  joints:
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+
+  constraints:
+    goal_time: 0.5
+    stopped_velocity_tolerance: 0.02
+    joint1:
+      trajectory: 0.05
+      goal: 0.02
+    joint2:
+      trajectory: 0.05
+      goal: 0.02
+    joint3:
+      trajectory: 0.05 
+      goal: 0.02
+    joint4:
+      trajectory: 0.05
+      goal: 0.02                     
+
+  gains: # Required because we're controlling an effort interface
+    joint1: {p: 50,  d: 0.01, i: 0, i_clamp: 1}
+    joint2: {p: 100,  d: 0.01, i: 0, i_clamp: 1}
+    joint3: {p: 100,  d: 0.01, i: 0, i_clamp: 1}
+    joint4: {p: 100,  d: 0.01, i: 0, i_clamp: 1}
 
 gripper_group_controller:
   type: "position_controllers/JointTrajectoryController"
