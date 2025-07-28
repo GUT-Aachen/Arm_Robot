@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by
+Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot name="arm_robot">
@@ -145,7 +146,7 @@
         <parent link="link3" />
         <child link="link4" />
         <axis xyz="1 0 0" />
-        <limit lower="-3.14" upper="0" effort="100" velocity="3" />
+        <limit lower="-3.14" upper="0.0" effort="100" velocity="3" />
     </joint>
     <link name="link5">
         <inertial>
@@ -198,6 +199,17 @@
             </geometry>
         </collision>
     </link>
+    <!-- end effector joint -->
+    <link name="gripper_center">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </visual>
+    </link>
+    <joint name="gripper_center_joint" type="fixed">
+        <parent link="link4" />
+        <child link="gripper_center" />
+        <origin xyz="0.0 0.0 0.2056" rpy="0.0 0.0 0.0" />
+    </joint>
     <joint name="joint6" type="revolute">
         <origin xyz="0.014393 0.0040353 0.11993" rpy="-1.5708 0 0" />
         <parent link="link4" />
