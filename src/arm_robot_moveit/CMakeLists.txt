@@ -7,7 +7,6 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   message_generation
 )
-
 catkin_package(
 	INCLUDE_DIRS
 	CATKIN_DEPENDS
